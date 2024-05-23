@@ -21,7 +21,7 @@ import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Headers
 
-const val BASE_URL = ""
+const val BASE_URL = "http://192.168.1.34:8080"
 
 class MainActivity : AppCompatActivity(),StudentAdapter.StudentEvent {
 
@@ -65,6 +65,20 @@ class MainActivity : AppCompatActivity(),StudentAdapter.StudentEvent {
     }
 
     fun getDataFromApi() {
+
+        apiService.getAllStudents().enqueue(object : Callback<List<Student>> {
+            override fun onResponse(call : Call<List<Student>>, response: Response<List<Student>>) {
+
+                val dataFromServer = response.body()!!
+                setDataToRecycler(dataFromServer)
+
+            }
+
+            override fun onFailure(p0: Call<List<Student>>, t: Throwable) {
+                Log.v("testApi", t.message!!)
+            }
+
+        })
 
     }
 
