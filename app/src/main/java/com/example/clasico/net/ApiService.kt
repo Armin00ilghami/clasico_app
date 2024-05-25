@@ -4,6 +4,7 @@ import com.example.clasico.recycler.Student
 import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
@@ -20,5 +21,8 @@ interface ApiService {
 
     @PUT("/student/updating{name}")
     fun updateStudent(@Path("name") name:String, @Body body :JsonObject ) :Call<String>
+
+    @DELETE("/student/deleting{name}")
+    fun deleteStudent( @Path("name") name:String ) :Call<String>
 
 }

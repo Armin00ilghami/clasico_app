@@ -112,6 +112,18 @@ class MainActivity : AppCompatActivity(),StudentAdapter.StudentEvent {
 
     private fun deleteDataFromServer(student: Student, position: Int) {
 
+        apiService
+            .deleteStudent(student.name)
+            .enqueue(object : Callback<String> {
+                override fun onResponse(call: Call<String>, response: Response<String>) {
+
+                }
+
+                override fun onFailure(call: Call<String>, t: Throwable) {
+
+                }
+            })
+        myAdapter.removeItem(student, position)
     }
 
     private fun updateDataInServer(student: Student, position: Int) {
