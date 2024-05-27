@@ -48,10 +48,15 @@ dependencies {
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
 
-    // retrofit library :
+    // retrofit library =>
     implementation libs.retrofit
     implementation libs.converter.gson
+    implementation libs.rxjava3.retrofit.adapter
 
     // sweet alert dialog =>
     implementation libs.library
+
+    //RxJava in MVVM =>
+    implementation libs.rxandroid
+    implementation libs.rxjava
 }

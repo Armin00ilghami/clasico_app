@@ -1,4 +1,4 @@
-package com.example.clasico.recycler
+package com.example.clasico.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

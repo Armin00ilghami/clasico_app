@@ -21,11 +21,11 @@
         tools:replace="android:icon">
 
         <activity
-            android:name=".MainActivity2"
+            android:name=".addStudent.AddStudentActivity"
             android:exported="false"
             android:windowSoftInputMode="stateVisible"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".mainScreen.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
