@@ -1,5 +1,6 @@
 package com.example.clasico.mainScreen
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -57,6 +58,15 @@ class StudentAdapter(val data: ArrayList<Student>, val studentEvent: StudentEven
 
         data.remove(student)
         notifyItemRemoved(position)
+
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun refreshData(newData: List<Student>) {
+
+        data.clear()
+        data.addAll(newData)
+        notifyDataSetChanged()
 
     }
 

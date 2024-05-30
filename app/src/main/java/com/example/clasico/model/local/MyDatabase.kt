@@ -1,4 +1,4 @@
-package ir.dunijet.studentManager.model.local
+package com.example.clasico.model.local
 
 import android.content.Context
 import androidx.room.Database
