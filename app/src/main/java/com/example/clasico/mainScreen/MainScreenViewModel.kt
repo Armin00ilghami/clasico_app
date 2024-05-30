@@ -1,7 +1,7 @@
 package com.example.clasico.mainScreen
 
 import com.example.clasico.model.MainRepository
-import com.example.clasico.model.Student
+import com.example.clasico.model.local.student.Student
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.subjects.BehaviorSubject

@@ -1,5 +1,7 @@
 package com.example.clasico.model
 
+import com.example.clasico.model.api.ApiService
+import com.example.clasico.model.local.student.Student
 import com.example.clasico.util.BASE_URL
 import com.example.clasico.util.studentToJsonObject
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory

@@ -1,5 +1,6 @@
-package com.example.clasico.model
+package com.example.clasico.model.api
 
+import com.example.clasico.model.local.student.Student
 import com.google.gson.JsonObject
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single

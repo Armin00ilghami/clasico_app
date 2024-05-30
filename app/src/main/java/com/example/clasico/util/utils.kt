@@ -1,6 +1,6 @@
 package com.example.clasico.util
 
-import com.example.clasico.model.Student
+import com.example.clasico.model.local.student.Student
 import com.google.gson.JsonObject
 
 fun studentToJsonObject(student: Student) :JsonObject {

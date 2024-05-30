@@ -15,7 +15,7 @@ import com.example.clasico.R
 import com.example.clasico.addStudent.AddStudentActivity
 import com.example.clasico.databinding.ActivityMainBinding
 import com.example.clasico.model.MainRepository
-import com.example.clasico.model.Student
+import com.example.clasico.model.local.student.Student
 import com.example.clasico.util.asyncRequest
 import com.example.clasico.util.showToast
 import io.reactivex.rxjava3.core.CompletableObserver

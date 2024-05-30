@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id 'kotlin-parcelize'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -59,4 +60,12 @@ dependencies {
     //RxJava in MVVM =>
     implementation libs.rxandroid
     implementation libs.rxjava
+
+    // room =>
+    implementation libs.room.runtime
+    //noinspection KaptUsageInsteadOfKsp
+    kapt libs.room.compiler
+
+    // lifeCycle =>
+    implementation libs.androidx.lifecycle.extensions
 }
