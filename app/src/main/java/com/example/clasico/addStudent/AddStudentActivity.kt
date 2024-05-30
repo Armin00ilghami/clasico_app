@@ -7,10 +7,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import com.example.clasico.R
 import com.example.clasico.databinding.ActivityMain2Binding
 import com.example.clasico.model.MainRepository
+import com.example.clasico.model.local.MyDatabase
 import com.example.clasico.model.local.student.Student
+import com.example.clasico.util.AddStudentViewModelFactory
+import com.example.clasico.util.ApiServiceSingleton
 import com.example.clasico.util.asyncRequest
 import com.example.clasico.util.showToast
 import io.reactivex.rxjava3.core.CompletableObserver
@@ -19,10 +23,10 @@ import io.reactivex.rxjava3.disposables.Disposable
 
 class AddStudentActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMain2Binding
-    lateinit var addStudentViewModel: AddStudentViewModel
+    private lateinit var binding: ActivityMain2Binding
+    private lateinit var addStudentViewModel: AddStudentViewModel
     private val compositeDisposable = CompositeDisposable()
-    var isInserting = true
+    private var isInserting = true
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +35,16 @@ class AddStudentActivity : AppCompatActivity() {
         enableEdgeToEdge()  //new structure
         setContentView(binding.root)
         setSupportActionBar(binding.toolbarMain2)
-        addStudentViewModel = AddStudentViewModel(MainRepository())
+
+        addStudentViewModel = ViewModelProvider(
+            this ,
+            AddStudentViewModelFactory(
+                MainRepository(
+                    ApiServiceSingleton.apiService!! ,
+                    MyDatabase.getDatabase(applicationContext).studentDao
+                )
+            )
+        ).get(AddStudentViewModel::class.java)
 
         //new structure ->
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main2)) { v, insets ->
@@ -165,7 +178,6 @@ class AddStudentActivity : AppCompatActivity() {
 
 
     }
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
